@@ -35,7 +35,7 @@ class AutoInsertExternalsCDNToHtml {
 
 interface urlType {
   tag: 'link' | 'script'
-  load: 'preload' | 'prefetch' | null
+  load?: 'preload' | 'prefetch' | null
   url: string
 }
 interface OptionsType {
