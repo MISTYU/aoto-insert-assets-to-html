@@ -1,3 +1,5 @@
+import { OptionsType, urlType } from "./types"
+
 const templateStr = {
   link: '<link rel="stylesheet" href="x" load>',
   script: '<script src="x" load></script>'
@@ -31,16 +33,6 @@ class AutoInsertExternalsCDNToHtml {
     })
   }
   
-}
-
-interface urlType {
-  tag: 'link' | 'script'
-  load?: 'preload' | 'prefetch' | null
-  url: string
-}
-interface OptionsType {
-  urls: urlType[]
-  location: 'string'
 }
 
 export default AutoInsertExternalsCDNToHtml
