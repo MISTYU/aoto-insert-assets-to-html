@@ -1,15 +1,5 @@
-const templateStr = {
-  link: '<link rel="stylesheet" href="x" load>',
-  script: '<script src="x" load></script>'
-}
-
-function getFinanlUrlsStr (urls: urlType[]) {
-  let urlsStr = ''
-  urls.forEach(url => {
-    urlsStr += templateStr[url.tag].replace('x', url.url).replace('load', url.load ? url.load : '')
-  })
-  return urlsStr
-}
+import { OptionsType, urlType } from "./types"
+import { getFinanlUrlsStr } from './utils'
 
 class AutoInsertExternalsCDNToHtml {
   urls: urlType[]
@@ -31,16 +21,6 @@ class AutoInsertExternalsCDNToHtml {
     })
   }
   
-}
-
-interface urlType {
-  tag: 'link' | 'script'
-  load?: 'preload' | 'prefetch' | null
-  url: string
-}
-interface OptionsType {
-  urls: urlType[]
-  location: 'string'
 }
 
 export default AutoInsertExternalsCDNToHtml
