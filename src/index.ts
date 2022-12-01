@@ -1,17 +1,5 @@
 import { OptionsType, urlType } from "./types"
-
-const templateStr = {
-  link: '<link rel="stylesheet" href="x" load>',
-  script: '<script src="x" load></script>'
-}
-
-function getFinanlUrlsStr (urls: urlType[]) {
-  let urlsStr = ''
-  urls.forEach(url => {
-    urlsStr += templateStr[url.tag].replace('x', url.url).replace('load', url.load ? url.load : '')
-  })
-  return urlsStr
-}
+import { getFinanlUrlsStr } from './utils'
 
 class AutoInsertExternalsCDNToHtml {
   urls: urlType[]
